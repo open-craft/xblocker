@@ -1,0 +1,13 @@
+# Packages required for testing
+-r base.txt
+
+mypy
+coverage
+ddt
+diff-cover
+dj-inmemorystorage
+edx-lint
+pycodestyle
+pytest
+pytest-cov
+pytest-django

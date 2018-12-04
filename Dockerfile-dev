@@ -1,0 +1,13 @@
+# Dockerfile for dev.
+
+FROM python:3.6-alpine
+
+ENV VIRTUAL_ENV=/xblocker/venv
+
+RUN apk update && apk upgrade
+RUN apk add bash bash-completion build-base git perl mariadb-dev libxml2-dev libxslt-dev
+
+RUN python3.6 -m venv $VIRTUAL_ENV
+
+RUN echo 'cd /xblocker/app/' >> ~/.bashrc
+RUN echo 'export PATH=$VIRTUAL_ENV/bin:$PATH' >> ~/.bashrc

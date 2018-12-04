@@ -1,0 +1,12 @@
+# This is a django app, targetting Django 2.2 LTS (not yet released).
+django>=2.1,<2.3
+django-extensions
+# For JSONField and iter_smart():
+django-mysql
+djangorestframework
+mysqlclient
+pytz
+django-cors-headers
+django-environ
+xblock
+edx-opaque-keys

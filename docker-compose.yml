@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+
+  mysql57:
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+    container_name: edx.devstack.mysql57
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    image: mysql:5.7
+    volumes:
+      - mysql57_data:/var/lib/mysql
+
+  xblocker:
+    container_name: edx.devstack.xblocker
+    image: opencraft/xblocker:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    stdin_open: true
+    tty: true
+    entrypoint: ["/bin/bash"]
+    networks:
+      - default
+      - devstack
+    ports:
+      - "18222:18222"
+    volumes:
+      - ./:/xblocker/app/:cached
+      - ../src:/edx/src/:cached
+    environment:
+      - MYSQL_DATABASE=xblocker_db
+      - MYSQL_USER=root
+      - MYSQL_HOST=mysql57
+      - MYSQL_PORT=3306
+
+volumes:
+  mysql57_data:
+
+networks:
+  devstack:
+    external:
+      name: devstack_default

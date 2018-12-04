@@ -1,0 +1,18 @@
+[run]
+branch = True
+data_file = .coverage
+source=
+    xblocker
+omit =
+    xblocker/settings*
+    xblocker/conf*
+    *wsgi.py
+    *migrations*
+    *admin.py
+    *static*
+    *templates*
+
+[report]
+exclude_lines =
+    raise NotImplementedError()
+    yield None
