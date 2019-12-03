@@ -1,3 +1,4 @@
+-e .
 # This is a django app, targetting Django 2.2 LTS (not yet released).
 django>=2.1,<2.3
 django-extensions
@@ -10,3 +11,4 @@ django-cors-headers
 django-environ
 xblock
 edx-opaque-keys
+requests

@@ -26,6 +26,8 @@ DEBUG = False
 
 ALLOWED_HOSTS: Tuple[str, ...] = ()
 
+BLOCKSTORE_API_URL = "http://edx.devstack.blockstore:18250/api/v1/"
+
 # Application definition
 
 INSTALLED_APPS: Tuple[str, ...] = (
